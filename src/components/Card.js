@@ -7,8 +7,8 @@ const Card = ({ card }) => {
         <img className="carousal-image" src={card.imageSrc} alt="imga" />
       </div>
       <div className="text-container">
-        <div className="card-title">{card.title}</div>
-        <div className="card-description">{card.description}</div>
+        <h3 className="card-title">{card.title}</h3>
+        <p className="card-description">{card.description}</p>
       </div>
     </div>
   );

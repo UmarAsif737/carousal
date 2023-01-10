@@ -1,14 +1,31 @@
+.slick-next,
 .slick-prev {
-  left: 3% !important;
   z-index: 1;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: white !important;
+  border: 1px solid #bfcade !important;
+
+  -webkit-box-shadow: 0 2px 8px rgb(0 61 165 / 10%) !important;
+  box-shadow: 0 2px 8px rgb(0 61 165 / 10%) !important;
 }
-.slick-next {
-  right: 3% !important;
-  z-index: 1;
-}
+
 .slick-prev:before,
 .slick-next:before {
-  color: black;
+  font-size: 30px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  color: #656565 !important;
+  padding: 0 !important;
+  margin-bottom: 4px !important;
+  font-family: cursive !important;
+}
+.slick-prev:before {
+  content: "<" !important;
+}
+.slick-next:before {
+  content: ">" !important;
 }
 .main-container {
   height: 100vh;
@@ -17,27 +34,56 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: Open Sans, sans-serif;
+  background-color: #f5f9ff;
 }
 
 .card-container {
-  width: 25rem;
-  /* height: 30vh; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-
   background-color: #fff;
-  border: 1px solid gray;
+  border: 1px solid #bfcade;
+  border-radius: 8px;
+  margin: 0 10px;
+  -webkit-box-shadow: 0 2px 8px rgb(0 61 165 / 10%);
+  box-shadow: 0 2px 8px rgb(0 61 165 / 10%);
 }
 
 .image-container {
   object-fit: cover;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .image-container img {
-  width: 400px;
-  height: 280px;
+  height: auto;
+  max-height: 6.5rem;
+  max-width: 80%;
+  width: -webkit-fill-available;
+  object-fit: contain;
 }
 .text-container {
   height: 120px;
+  padding: 0 28px;
+}
+.card-title {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  margin-bottom: 16px;
+  color: #384252;
+  margin-top: 0;
+}
+.card-description {
+  opacity: 0.6;
+  font-family: Open Sans, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+}
+.slick-dots li button:before {
+  font-family: "slick";
+  font-size: 10px !important;
+  line-height: 60px !important;
+}
+
+.slick-dots li {
+  margin: 0 0.8rem !important;
 }
