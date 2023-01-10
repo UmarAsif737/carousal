@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from "./Card";
 import { cardData } from "./data";
 
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+  return windowSize;
+}
 const Carousal = () => {
+  const size = useWindowSize();
+  // if (size.width>=) {
+
+  // }
+  console.log(size.width);
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -45,6 +75,7 @@ const Carousal = () => {
   }
 
   const settings = {
+    infinite: false,
     dots: true,
     autoplay: true,
     slidesToShow: 3,
@@ -54,10 +85,10 @@ const Carousal = () => {
     responsive: [
       {
         breakpoint: 1024,
+
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
+          slidesToScroll: 1,
           dots: true,
         },
       },
@@ -70,13 +101,22 @@ const Carousal = () => {
       },
     ],
   };
+  console.log(settings.slidesToShow);
   return (
     <>
       <div className="main-container">
         <Slider {...settings}>
-          {cardData.map((card) => (
-            <Card card={card} />
-          ))}
+          {size.width <= 750
+            ? cardData
+                .slice(0, 5)
+                .map((card) => <div>{card.title && <Card card={card} />}</div>)
+            : size.width <= 1024
+            ? cardData
+                .slice(0, 6)
+                .map((card) => <div>{card.title && <Card card={card} />}</div>)
+            : cardData.map((card) => (
+                <div>{card.title && <Card card={card} />}</div>
+              ))}
         </Slider>
       </div>
     </>

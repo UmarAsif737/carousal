@@ -27,4 +27,6 @@ export const cardData = [
     description:
       "Learn how to turn a house into a home with the Scott Brothers.",
   },
+  {},
+  {},
 ];
