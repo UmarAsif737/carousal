@@ -62,7 +62,7 @@
   object-fit: contain;
 }
 .text-container {
-  height: 120px;
+  height: 150px;
   padding: 0 28px;
 }
 .card-title {
@@ -76,6 +76,7 @@
   opacity: 0.6;
   font-family: Open Sans, sans-serif;
   font-size: 0.95rem;
+  height: inherit;
   line-height: 1.5rem;
 }
 .slick-dots li button:before {
