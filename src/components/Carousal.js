@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
+import SlickSlider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from "./Card";
@@ -106,7 +106,7 @@ const Carousal = () => {
   return (
     <>
       <div className="main-container">
-        <Slider {...settings}>
+        <SlickSlider {...settings}>
           {size.width <= 750
             ? cardData
                 .slice(0, 5)
@@ -118,7 +118,7 @@ const Carousal = () => {
             : cardData.map((card) => (
                 <div>{card.title && <Card card={card} />}</div>
               ))}
-        </Slider>
+        </SlickSlider>
       </div>
     </>
   );
