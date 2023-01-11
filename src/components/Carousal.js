@@ -77,7 +77,8 @@ const Carousal = () => {
   const settings = {
     infinite: false,
     dots: true,
-    autoplay: true,
+    initialSlide: 0,
+    autoplay: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     prevArrow: <SamplePrevArrow />,
